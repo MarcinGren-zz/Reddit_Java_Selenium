@@ -10,11 +10,19 @@ public class ChromeConfig {
     public static WebDriver driver;
 
     public ChromeConfig() {
+        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
+    }
+
+    public WebDriver getDriver() {
 
         if (driver == null) {
             driver = new ChromeDriver();
             System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            return driver;
+        } else {
+            return driver;
         }
     }
 }

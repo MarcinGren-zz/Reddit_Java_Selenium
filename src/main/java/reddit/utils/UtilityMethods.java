@@ -1,9 +1,7 @@
 package reddit.utils;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import reddit.config.ChromeConfig;
 
 public class UtilityMethods extends ChromeConfig {
@@ -11,7 +9,7 @@ public class UtilityMethods extends ChromeConfig {
 
     static public WebElement findElementByXpath(String xpath, String method) {
 
-        WebElement element =  driver.findElement(convertMethodToBy(xpath, method));
+        WebElement element = driver.findElement(convertMethodToBy(xpath, method));
         return element;
     }
 
