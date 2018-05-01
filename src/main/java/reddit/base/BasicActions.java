@@ -3,16 +3,23 @@ package reddit.base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static reddit.config.ChromeConfig.*;
+import static reddit.utils.Constants.XPATH;
+import static reddit.utils.XpathConstants.*;
+import static reddit.utils.UtilityMethods.findElementByXpath;
 
 public class BasicActions {
 
-    public static void main(String[] args) {
-
+    static public void openRedditPage() {
 
         WebDriver driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
+        setWebdriver();
         String baseUrl = "http://www.reddit.com/";
         driver.get(baseUrl);
     }
 
+    static public void goToTheOldRedditLayout() {
+
+        findElementByXpath(oldRedditButtonXpath, XPATH).click();
+    }
 }
