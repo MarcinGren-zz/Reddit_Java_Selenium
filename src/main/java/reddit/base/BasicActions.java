@@ -1,25 +1,27 @@
 package reddit.base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebElement;
+import reddit.config.ChromeConfig;
+import reddit.utils.UtilityMethods;
 
-import static reddit.config.ChromeConfig.*;
 import static reddit.utils.Constants.XPATH;
-import static reddit.utils.XpathConstants.*;
-import static reddit.utils.UtilityMethods.findElementByXpath;
+import static reddit.utils.XpathConstants.oldRedditButtonXpath;
 
-public class BasicActions {
+public class BasicActions extends ChromeConfig {
 
-    static public void openRedditPage() {
+    public void openRedditPage() {
 
-        WebDriver driver = new ChromeDriver();
-        setWebdriver();
         String baseUrl = "http://www.reddit.com/";
-        driver.get(baseUrl);
+        getDriver().get(baseUrl);
     }
 
-    static public void goToTheOldRedditLayout() {
+    public void goToTheOldRedditLayout() {
 
-        findElementByXpath(oldRedditButtonXpath, XPATH).click();
+        try {
+            WebElement element = UtilityMethods.findElementByXpath(oldRedditButtonXpath, XPATH);
+            element.click();
+        } catch (NullPointerException e) {
+            return;
+        }
     }
 }
