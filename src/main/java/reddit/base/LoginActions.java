@@ -1,9 +1,9 @@
 package reddit.base;
 
 
-// SeleniumTesting123 justtesting
-public class LoginActions {
+import reddit.config.ChromeConfig;
 
+public class LoginActions extends ChromeConfig {
 
 
 

@@ -3,14 +3,18 @@ package reddit.config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class ChromeConfig {
 
-    static public void setWebdriver() {
+    public static WebDriver driver;
 
-      //  WebDriver driver = new ChromeDriver(); //doesn't really work atm, might use setter/getter? to be changed
-        System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
-     //   return driver;
+    public ChromeConfig() {
+
+        if (driver == null) {
+            driver = new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver", "ChromeDriver\\chromedriver.exe");
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        }
     }
-
-
 }
