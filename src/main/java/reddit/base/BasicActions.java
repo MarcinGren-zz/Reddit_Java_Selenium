@@ -1,5 +1,6 @@
 package reddit.base;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import reddit.config.ChromeConfig;
 import reddit.utils.UtilityMethods;
@@ -21,6 +22,8 @@ public class BasicActions extends ChromeConfig {
             WebElement element = UtilityMethods.findElementByXpath(oldRedditButtonXpath, XPATH);
             element.click();
         } catch (NullPointerException e) {
+            return;
+        } catch (NoSuchElementException e) {
             return;
         }
     }
