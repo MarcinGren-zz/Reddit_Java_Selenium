@@ -6,7 +6,7 @@ import reddit.config.ChromeConfig;
 import reddit.utils.UtilityMethods;
 
 import static reddit.utils.Constants.XPATH;
-import static reddit.utils.XpathConstants.oldRedditButtonXpath;
+import static reddit.utils.LocatorConstants.OLD_REDDIT_BUTTON_XPATH;
 
 public class BasicActions extends ChromeConfig {
 
@@ -19,11 +19,9 @@ public class BasicActions extends ChromeConfig {
     public void goToTheOldRedditLayout() {
 
         try {
-            WebElement element = UtilityMethods.findElementByXpath(oldRedditButtonXpath, XPATH);
+            WebElement element = UtilityMethods.findElement(OLD_REDDIT_BUTTON_XPATH, XPATH);
             element.click();
-        } catch (NullPointerException e) {
-            return;
-        } catch (NoSuchElementException e) {
+        } catch (NullPointerException | NoSuchElementException e) {
             return;
         }
     }

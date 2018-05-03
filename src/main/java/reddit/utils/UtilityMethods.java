@@ -1,35 +1,42 @@
 package reddit.utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import reddit.config.ChromeConfig;
 
 public class UtilityMethods extends ChromeConfig {
 
 
-    static public WebElement findElementByXpath(String xpath, String method) {
+    static public WebElement findElement(String locator, String method) {
 
-        WebElement element = driver.findElement(convertMethodToBy(xpath, method));
+        WebElement element = driver.findElement(convertMethodToBy(locator, method));
         return element;
     }
 
-    static public void typeIntoInputField(String xpathToBeSelected, String method, String keysToBeUsed) {
+    static public void typeIntoInputField(String locatorToBeSelected, String method, String keysToBeUsed) {
         try {
-            WebElement element = UtilityMethods.findElementByXpath(xpathToBeSelected, method);
+            WebElement element = UtilityMethods.findElement(locatorToBeSelected, method);
             element.sendKeys(keysToBeUsed);
         } catch (NullPointerException e) {
-            System.out.println("couldnt find the " + xpathToBeSelected + " field");
+            System.out.println("couldnt find the " + locatorToBeSelected + " field");
         }
     }
 
-    static public void clickElement(String xpathToBeSelected, String method) {
+    static public void clickElement(String locatorToBeSelected, String method) {
         try {
-            WebElement element = UtilityMethods.findElementByXpath(xpathToBeSelected, method);
+            WebElement element = UtilityMethods.findElement(locatorToBeSelected, method);
             element.click();
         } catch (NullPointerException e) {
-            System.out.println("couldnt find the " + xpathToBeSelected + " field");
+            System.out.println("couldnt find the " + locatorToBeSelected + " field");
         }
     }
+
+    static public String  getText(String locatorToBeSelected, String method) {
+            WebElement element = UtilityMethods.findElement(locatorToBeSelected, method);
+            String textValue = element.getText();
+            return textValue;
+        }
 
 
     //More to add, for now xpath set as default and as a case. Most likely going to change default in the future
@@ -41,6 +48,15 @@ public class UtilityMethods extends ChromeConfig {
                 break;
             case "xpath":
                 byType = By.xpath(xpath);
+                break;
+            case "text":
+                byType = By.linkText(xpath);
+                break;
+            case "class":
+                byType = By.className(xpath);
+                break;
+            case "css":
+                byType = By.cssSelector(xpath);
                 break;
             default:
                 byType = By.xpath(xpath);
