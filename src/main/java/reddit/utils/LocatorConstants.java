@@ -8,6 +8,10 @@ public class LocatorConstants {
     static public String OLD_LOGIN_BUTTON_XPATH = "//button[text()='login']";
     static public String OLD_LOGGED_IN_USERNAME = "//div[@class='titlebox']/h1";
     static public String STATUS_ERROR_XPATH = "//div[@class='status error']";
+    static public String POPULAR_IN_XPATH = "//div[@class='dropdown lightdrop']";
+    static public String EVERYWHERE_POPULAR_IN_XPATH = "//div[@class='drop-choices lightdrop inuse']/form[1]";
+    static public String SELECTED_SPAN_CLASS_XPATH = "//span[@class='selected']";
+    static public String LOGOUT_BUTTON_XPATH = "//a[text()='logout']";
 
     static public String NEW_LOGIN_POPUP_XPATH = "//div[@id='header']//a[text()='log in']";
     static public String NEW_INPUT_USERNAME_FIELD_XPATH = "//input[@id='loginUsername']";
