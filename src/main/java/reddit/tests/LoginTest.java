@@ -4,11 +4,14 @@ import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
 import reddit.base.BasicActions;
 import reddit.base.LoginActions;
+import reddit.base.TestBase;
+import sun.rmi.runtime.Log;
+
 import static reddit.utils.Constants.*;
 
-public class LoginTest {
+public class LoginTest extends TestBase{
 
-    @Test
+    @Test(priority = 1)
     public void oldLoginTest() {
         BasicActions ba = new BasicActions();
         LoginActions la = new LoginActions();
@@ -28,7 +31,13 @@ public class LoginTest {
         la.checkLoggedUsername();
     }
 
-    @Test
+    @Test(priority = 2)
+    public void logoutOld() {
+        LoginActions la = new LoginActions();
+        la.logout();
+    }
+
+    @Test(priority = 3)
     public void oldLoginTestInvalidUsername() {
         BasicActions ba = new BasicActions();
         LoginActions la = new LoginActions();
@@ -41,7 +50,7 @@ public class LoginTest {
         la.checkLoginFailedMessage();
     }
 
-    @Test
+    @Test(priority = 4)
     public void oldLoginTestInvalidPassword() {
         BasicActions ba = new BasicActions();
         LoginActions la = new LoginActions();
@@ -54,13 +63,13 @@ public class LoginTest {
         la.checkLoginFailedMessage();
     }
 
-    @Test   //unfinished
-    public void newLoginTest() {
-        BasicActions ba = new BasicActions();
-        LoginActions la = new LoginActions();
-
-        ba.openRedditPage();
-        la.clickLoginPopupNew();
-        la.enterUsernameNew();
-    }
+//    @Test   //unfinished
+//    public void newLoginTest() {
+//        BasicActions ba = new BasicActions();
+//        LoginActions la = new LoginActions();
+//
+//        ba.openRedditPage();
+//        la.clickLoginPopupNew();
+//        la.enterUsernameNew();
+//    }
 }

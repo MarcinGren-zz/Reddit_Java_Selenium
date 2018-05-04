@@ -52,4 +52,8 @@ public class LoginActions extends ChromeConfig {
         String textToCheck = getText(STATUS_ERROR_XPATH, XPATH);
         assert textToCheck.equals(LOGIN_FAILED_MESSAGE);
     }
+
+    public void logout() {
+        clickElement(LOGOUT_BUTTON_XPATH, XPATH);
+    }
 }

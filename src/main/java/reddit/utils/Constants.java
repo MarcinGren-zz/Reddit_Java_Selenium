@@ -7,6 +7,7 @@ public class Constants {
     public static String INVALID = "invalid";
 
     public static String LOGIN_FAILED_MESSAGE = "incorrect username or password";
+    public static String EVERYWHERE = "Everywhere";
 
     public static String ID = "id";
     public static String XPATH = "xpath";
