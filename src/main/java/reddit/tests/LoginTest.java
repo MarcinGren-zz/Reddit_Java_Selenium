@@ -1,6 +1,7 @@
 package reddit.tests;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NoSuchSessionException;
 import org.testng.annotations.Test;
 import reddit.base.BasicActions;
 import reddit.base.LoginActions;
@@ -9,7 +10,7 @@ import sun.rmi.runtime.Log;
 
 import static reddit.utils.Constants.*;
 
-public class LoginTest extends TestBase{
+public class LoginTest extends TestBase {
 
     @Test(priority = 1)
     public void oldLoginTest() {
@@ -31,11 +32,11 @@ public class LoginTest extends TestBase{
         la.checkLoggedUsername();
     }
 
-    @Test(priority = 2)
-    public void logoutOld() {
-        LoginActions la = new LoginActions();
-        la.logout();
-    }
+//    @Test(priority = 2)
+//    public void logoutOld() {
+//        LoginActions la = new LoginActions();
+//        la.logout();
+//    }
 
     @Test(priority = 3)
     public void oldLoginTestInvalidUsername() {
