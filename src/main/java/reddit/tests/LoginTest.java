@@ -13,7 +13,7 @@ import static reddit.utils.Constants.*;
 public class LoginTest extends TestBase {
 
     @Test(priority = 1)
-    public void oldLoginTest() {
+    public void oldLoginTestValidUsername() {
         BasicActions ba = new BasicActions();
         LoginActions la = new LoginActions();
 
@@ -65,7 +65,7 @@ public class LoginTest extends TestBase {
     }
 
 //    @Test   //unfinished
-//    public void newLoginTest() {
+//    public void newLoginTestValidUsername() {
 //        BasicActions ba = new BasicActions();
 //        LoginActions la = new LoginActions();
 //
