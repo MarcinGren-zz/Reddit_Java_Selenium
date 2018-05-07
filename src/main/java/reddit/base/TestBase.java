@@ -16,14 +16,11 @@ public class TestBase extends ChromeConfig {
 //    }
 
     @AfterMethod
-    public void teardown() {
-//        if (method.getName().equals("oldLoginTest")) {
-//
-//        } else {
+    public void teardown(Method method) {
+        if (method.getName().equals("oldLoginTestValidUsername") == false) {
             getDriver().quit();
             driver = null;
-//        }
-
+        }
     }
 
 }

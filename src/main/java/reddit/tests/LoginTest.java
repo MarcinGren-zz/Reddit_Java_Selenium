@@ -32,11 +32,11 @@ public class LoginTest extends TestBase {
         la.checkLoggedUsername();
     }
 
-//    @Test(priority = 2)
-//    public void logoutOld() {
-//        LoginActions la = new LoginActions();
-//        la.logout();
-//    }
+    @Test(priority = 2, groups = "DriverQuit")
+    public void logoutOld() {
+        LoginActions la = new LoginActions();
+        la.logout();
+    }
 
     @Test(priority = 3)
     public void oldLoginTestInvalidUsername() {
