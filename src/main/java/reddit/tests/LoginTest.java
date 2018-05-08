@@ -1,5 +1,6 @@
 package reddit.tests;
 
+import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchSessionException;
 import org.testng.annotations.Test;
@@ -18,7 +19,12 @@ public class LoginTest extends TestBase {
         LoginActions la = new LoginActions();
 
         ba.openRedditPage();
-        ba.goToTheOldRedditLayout();
+        try {
+            ba.goToTheOldRedditLayout();
+        } catch (ElementNotVisibleException e) {
+            ba.closeWelcomeToRedditPopup();
+            ba.goToTheOldRedditLayout();
+        }
         la.enterUsername(USERNAME);
         la.enterPassword(PASSWORD);
         la.clickLoginButton();
@@ -32,7 +38,7 @@ public class LoginTest extends TestBase {
         la.checkLoggedUsername();
     }
 
-    @Test(priority = 2, groups = "DriverQuit")
+    @Test(priority = 2)
     public void logoutOld() {
         LoginActions la = new LoginActions();
         la.logout();
@@ -44,7 +50,12 @@ public class LoginTest extends TestBase {
         LoginActions la = new LoginActions();
 
         ba.openRedditPage();
-        ba.goToTheOldRedditLayout();
+        try {
+            ba.goToTheOldRedditLayout();
+        } catch (ElementNotVisibleException e) {
+            ba.closeWelcomeToRedditPopup();
+            ba.goToTheOldRedditLayout();
+        }
         la.enterUsername(INVALID);
         la.enterPassword(PASSWORD);
         la.clickLoginButton();
@@ -57,7 +68,12 @@ public class LoginTest extends TestBase {
         LoginActions la = new LoginActions();
 
         ba.openRedditPage();
-        ba.goToTheOldRedditLayout();
+        try {
+            ba.goToTheOldRedditLayout();
+        } catch (ElementNotVisibleException e) {
+            ba.closeWelcomeToRedditPopup();
+            ba.goToTheOldRedditLayout();
+        }
         la.enterUsername(USERNAME);
         la.enterPassword(INVALID);
         la.clickLoginButton();

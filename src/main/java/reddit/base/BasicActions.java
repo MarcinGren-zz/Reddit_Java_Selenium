@@ -7,6 +7,7 @@ import reddit.utils.UtilityMethods;
 
 import static reddit.utils.Constants.XPATH;
 import static reddit.utils.LocatorConstants.OLD_REDDIT_BUTTON_XPATH;
+import static reddit.utils.LocatorConstants.SKIP_FOR_NOW_XPATH;
 
 public class BasicActions extends ChromeConfig {
 
@@ -24,5 +25,9 @@ public class BasicActions extends ChromeConfig {
         } catch (NullPointerException | NoSuchElementException e) {
             return;
         }
+    }
+
+    public void closeWelcomeToRedditPopup() {
+        UtilityMethods.clickElement(SKIP_FOR_NOW_XPATH, XPATH);
     }
 }
